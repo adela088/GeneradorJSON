@@ -284,7 +284,6 @@ function App() {
     const [toast, setToast] = React.useState(null);
 
 
-
     function showToast(msg, type = "success") {
         setToast({ msg, type });
         setTimeout(() => setToast(null), 1800);
@@ -302,6 +301,35 @@ function App() {
             .catch(() => showToast("❌ Error al copiar", "error"));
     }
 
+    function exportarCSV() {
+        if (!data.length) {
+            showToast("❌ No hay datos para exportar");
+            return;
+        }
+
+        const columnas = Object.keys(data[0]);
+
+        const csv = [
+            columnas.join(","), // header
+            ...data.map(row =>
+                columnas.map(col =>
+                    `"${String(row[col]).replace(/"/g, '""')}"`
+                ).join(",")
+            )
+        ].join("\n");
+
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "datos.csv";
+        a.click();
+
+        URL.revokeObjectURL(url);
+
+        showToast("✓ CSV exportado");
+    }
 
 
 
@@ -450,27 +478,32 @@ function App() {
                 </div>
 
                 <button onClick={generar} disabled={!columnasValidas}>
-                    Generar
+                    ⚙️ Generar
                 </button>
 
                 <button onClick={guardar}>
-                    Guardar JSON
+                    💾 Guardar JSON
                 </button>
 
                 <button
                     onClick={copiarJSON}
                     disabled={!data.length}
                 >
-                    {copiado ? "✓ Copiado" : "Copiar JSON"}
+                    {copiado ? "✓ Copiado" : "📋Copiar JSON"}
                 </button>
 
                 <button onClick={undo} disabled={!history.length}>
-                    Ctrl + Z
+                    ↩️ Ctrl + Z
                 </button>
 
                 <button className="boton-eliminar" onClick={borrar}>
-                    Borrar
+                    🗑️ Borrar
                 </button>
+
+                <button onClick={exportarCSV} disabled={!data.length}>
+                    📊 Exportar CSV
+                </button>
+
 
             </div>
 

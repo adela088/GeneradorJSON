@@ -942,3 +942,17 @@ body.theme-transition #json-output {
 .btn-copy-row:hover {
   background: #0ea5e9;
 }
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
