@@ -32,6 +32,29 @@ function MoonIcon() {
     );
 }
 
+function normalizarNombre(nombre) {
+    return nombre
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z\s]/g, "")
+        .trim()
+        .replace(/\s+/g, ".");
+}
+
+function generarEmail(schema, objActual) {
+    const colNombre = schema.find(c => c.tipo === "Nombre Completo");
+
+    if (colNombre && objActual[colNombre.nombre]) {
+        const base = normalizarNombre(objActual[colNombre.nombre]);
+        const num = Math.floor(Math.random() * 100);
+        return `${base}${num}@gmail.com`;
+    }
+
+    const rand = Math.random().toString(36).slice(2, 8);
+    return `user_${rand}@correo.com`;
+}
+
 
 /* =========================
    GENERATOR MAP
@@ -64,13 +87,22 @@ const GENERATOR_MAP = {
 
 function generateObjectFromSchema(schema) {
     const obj = {};
+
     schema.forEach(col => {
         if (!col.nombre || !col.tipo) return;
+
+        if (col.tipo === "Email") {
+            obj[col.nombre] = generarEmail(schema, obj);
+            return;
+        }
+
         const gen = GENERATOR_MAP[col.tipo];
         if (gen) obj[col.nombre] = gen();
     });
+
     return obj;
 }
+
 
 /* =========================
    TIPOS UI
