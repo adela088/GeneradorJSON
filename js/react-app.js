@@ -252,6 +252,30 @@ function App() {
         return window.matchMedia &&
             window.matchMedia("(prefers-color-scheme: dark)").matches;
     });
+    const [copiado, setCopiado] = useState(false);
+    const [toast, setToast] = React.useState(null);
+
+
+
+    function showToast(msg, type = "success") {
+        setToast({ msg, type });
+        setTimeout(() => setToast(null), 1800);
+    }
+
+    function copiarJSON() {
+        if (!data.length) {
+            showToast("⚠️ No hay datos para copiar", "warning");
+            return;
+        }
+
+        navigator.clipboard
+            .writeText(JSON.stringify(data, null, 2))
+            .then(() => showToast("✓ JSON copiado", "success"))
+            .catch(() => showToast("❌ Error al copiar", "error"));
+    }
+
+
+
 
 
 
@@ -299,6 +323,8 @@ function App() {
         const prev = history[history.length - 1];
         setHistory(history.slice(0, -1));
         setData(prev);
+        showToast("ℹ️ Cambios deshechos", "info");
+
     }
 
     function generar() {
@@ -307,24 +333,47 @@ function App() {
         ).filter(o => Object.keys(o).length);
 
         pushHistory([...data, ...nuevos]);
+
+        showToast("✓ Datos generados", "success");
+
     }
 
     function borrar() {
+        if (!data.length) {
+            showToast("⚠️ No hay datos para borrar", "warning");
+            return;
+        }
+
         pushHistory([]);
+        showToast("🗑️ Datos borrados", "error");
     }
 
+
     function guardar() {
-        const blob = new Blob(
-            [JSON.stringify(data, null, 2)],
-            { type: "application/json" }
-        );
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "salida.json";
-        a.click();
-        URL.revokeObjectURL(url);
+        if (!data.length) {
+            showToast("⚠️ No hay datos para guardar", "warning");
+            return;
+        }
+
+        try {
+            const blob = new Blob(
+                [JSON.stringify(data, null, 2)],
+                { type: "application/json" }
+            );
+
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "salida.json";
+            a.click();
+            URL.revokeObjectURL(url);
+
+            showToast("💾 JSON guardado correctamente", "success");
+        } catch (e) {
+            showToast("❌ Error al guardar JSON", "error");
+        }
     }
+
 
     return (
         <div className="article">
@@ -345,9 +394,14 @@ function App() {
 
                     <span className="thumb" />
                 </div>
-
-
             </div>
+
+            {toast && (
+                <div className={`toast ${toast.type}`}>
+                    {toast.msg}
+                </div>
+            )}
+
 
             <Stats columnas={columnas} data={data} />
 
@@ -373,6 +427,13 @@ function App() {
 
                 <button onClick={guardar}>
                     Guardar JSON
+                </button>
+
+                <button
+                    onClick={copiarJSON}
+                    disabled={!data.length}
+                >
+                    {copiado ? "✓ Copiado" : "Copiar JSON"}
                 </button>
 
                 <button onClick={undo} disabled={!history.length}>

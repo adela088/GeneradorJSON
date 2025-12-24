@@ -490,7 +490,7 @@ body.light button {
 }
 
 /* =========================
-   LIGHT MODE – DASHBOARD LIMPIO
+   LIGHT MODE 
 ========================= */
 
 body.light {
@@ -499,7 +499,7 @@ body.light {
 }
 
 /* =========================
-   STATS (ARREGLADAS)
+   STATS
 ========================= */
 
 body.light .stats-grid {
@@ -551,7 +551,7 @@ body.light .select-placeholder {
 }
 
 /* =========================
-   BOTONES (SUAVES)
+   BOTONES 
 ========================= */
 
 body.light button {
@@ -625,7 +625,7 @@ body.light #json-output {
 }
 
 /* =========================
-   TABLA (UNIFORME)
+   TABLA
 ========================= */
 
 body.light .tablita {
@@ -866,4 +866,65 @@ body.theme-transition #json-output {
   }
 }
 
+/* =========================
+   TOAST SYSTEM
+========================= */
 
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  min-width: 220px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  z-index: 99999;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  animation: toast-slide 0.3s ease, toast-hide 0.3s ease 1.5s forwards;
+}
+
+/* Tipos */
+.toast.success {
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.toast.error {
+  background: linear-gradient(135deg,#ef4444,#dc2626);
+}
+
+.toast.warning {
+  background: linear-gradient(135deg,#f59e0b,#d97706);
+}
+
+.toast.info {
+  background: linear-gradient(135deg,#38bdf8,#0ea5e9);
+}
+
+/* Animaciones */
+@keyframes toast-slide {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-hide {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}

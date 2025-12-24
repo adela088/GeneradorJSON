@@ -37,7 +37,8 @@ const nombres = [
     "Aria", "Ezio", "Luna", "Kai", "Sora", "Noah", "Emma",
     "Olivia", "Liam", "Mateo", "Lucas", "Sofía",
     "Valentina", "Isabella", "Mía", "Dylan",
-    "Álex", "Nico", "Leo", "Thiago", "Daniel"
+    "Álex", "Nico", "Leo", "Thiago", "Daniel", "Carolina", "Andrés", "Valeria",
+    "Álvaro", "Manuel"
 ];
 
 const apellidos = [
@@ -45,5 +46,6 @@ const apellidos = [
     "Stone", "Blackwood", "Silver", "Knight",
     "Fox", "Walker", "Hill", "Scott", "Reyes",
     "García", "Pérez", "López", "Martínez",
-    "Fernández", "Torres", "Ramírez"
+    "Fernández", "Torres", "Ramírez", "González", "Rodríguez",
+    "Torres"
 ];
