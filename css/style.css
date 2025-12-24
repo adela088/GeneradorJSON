@@ -1,0 +1,869 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* FONDO GENERAL */
+body {
+  background: #0f172a; /* azul oscuro */
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+/* CONTENEDOR PRINCIPAL */
+#container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.imgLogo {
+  max-width: 180px;
+}
+
+/* SECCIÓN PRINCIPAL */
+.article {
+  background: #020617;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 30px rgba(0,0,0,.4);
+}
+
+/* TITULOS */
+h1, h2, h3 {
+  margin-bottom: 15px;
+  color: #38bdf8;
+}
+
+/* FORMULARIO */
+#json-form-alt {
+  margin-bottom: 20px;
+}
+
+/* CAMPOS DINÁMICOS */
+.campo-alt {
+  display: grid;
+  grid-template-columns: 2fr 2fr auto;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.input-clave-alt,
+.input-valor-alt {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+/* BOTONES */
+button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #38bdf8;
+  color: #020617;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+.boton-eliminar {
+  background: #ef4444;
+  color: white;
+}
+
+.boton-eliminar:hover {
+  background: #dc2626;
+}
+
+/* GRUPO DE BOTONES */
+.campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+/* INPUT NUMÉRICO */
+#cantidad-objetos {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+/* SALIDA */
+#salida-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+/* TABLA */
+.tablita {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tablita th,
+.tablita td {
+  border: 1px solid #334155;
+  padding: 8px;
+  text-align: left;
+}
+
+.tablita thead {
+  background: #020617;
+}
+
+.tablita tbody tr:nth-child(even) {
+  background: #020617;
+}
+
+/* JSON OUTPUT */
+#json-output {
+  background: #020617;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  max-height: 400px;
+  overflow: auto;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+  color: #22c55e;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.campo-alt {
+  animation: aparecer .3s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   COLUMNAS - UI MEJORADA
+========================= */
+
+.columnas-box {
+  background: linear-gradient(180deg, #020617, #020617cc);
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.columnas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* fila columna */
+.campo-alt {
+  display: grid;
+  grid-template-columns: 2fr 2fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+/* botón X más limpio */
+.boton-x {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+/* botón agregar columna */
+.btn-add-col {
+  width: fit-content;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.btn-add-col:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(56,189,248,.3);
+}
+
+/* =========================
+   ACCIONES (generar / guardar)
+========================= */
+
+.campos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.campos input[type="number"] {
+  width: 100px;
+}
+
+/* Select placeholder */
+.select-placeholder {
+  color: #64748b; /* gris suave */
+}
+
+.input-valor-alt option[disabled] {
+  color: #64748b;
+}
+
+
+/* =========================
+   VALIDACIONES VISUALES
+========================= */
+
+.input-error {
+  border: 1px solid #ef4444 !important;
+  box-shadow: 0 0 0 1px rgba(239,68,68,.4);
+}
+
+.select-placeholder {
+  color: #64748b;
+}
+
+/* =========================
+   BOTÓN DESHABILITADO
+========================= */
+
+button:disabled,
+.btn-disabled {
+  background: #334155 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+
+/* =========================
+   DASHBOARD LAYOUT
+========================= */
+
+#container {
+  max-width: 1400px;
+}
+
+.article {
+  background: linear-gradient(180deg, #020617, #020617cc);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.4);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.imgLogo {
+  height: 48px;
+}
+
+/* =========================
+   DASHBOARD SECTIONS
+========================= */
+
+.columnas-box,
+.campos,
+#json-output,
+.tablita {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+}
+
+.columnas-box {
+  margin-bottom: 20px;
+}
+
+/* =========================
+   ACTION BAR
+========================= */
+
+.campos {
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.campos button {
+  min-width: 140px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-clave-alt,
+.input-valor-alt,
+.campos input {
+  background: #020617;
+  border: 1px solid #334155;
+  color: #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* =========================
+   JSON OUTPUT (EDITOR)
+========================= */
+
+#json-output {
+  margin-top: 20px;
+  padding: 16px;
+  max-height: 400px;
+  overflow: auto;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+  color: #22c55e;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.tablita {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.tablita thead {
+  background: #020617;
+}
+
+.tablita th,
+.tablita td {
+  padding: 10px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.tablita tbody tr:hover {
+  background: rgba(56,189,248,.05);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.boton-eliminar {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+}
+
+.btn-disabled {
+  background: #334155 !important;
+  color: #94a3b8 !important;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #64748b;
+}
+
+/* =========================
+   THEME
+========================= */
+
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+body.light {
+  background: #f8fafc;
+  color: #020617;
+}
+
+body.light .article,
+body.light .columnas-box,
+body.light .tablita,
+body.light #json-output {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+body.light button {
+  background: linear-gradient(135deg,#0ea5e9,#38bdf8);
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.stat-card {
+  background: linear-gradient(135deg,#020617,#020617cc);
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-card span {
+  font-size: 13px;
+  opacity: .7;
+}
+
+.stat-card strong {
+  font-size: 28px;
+  display: block;
+  margin-top: 4px;
+}
+
+/* =========================
+   LIGHT MODE – DASHBOARD LIMPIO
+========================= */
+
+body.light {
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+/* =========================
+   STATS (ARREGLADAS)
+========================= */
+
+body.light .stats-grid {
+  margin-bottom: 20px;
+}
+
+body.light .stat-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+
+body.light .stat-card span {
+  color: #6b7280;
+}
+
+body.light .stat-card strong {
+  color: #2563eb;
+}
+
+/* =========================
+   COLUMNAS BOX
+========================= */
+
+body.light .columnas-box {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+/* =========================
+   INPUTS & SELECTS (CLAVE)
+========================= */
+
+body.light .input-clave-alt,
+body.light .input-valor-alt,
+body.light .campos input {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
+}
+
+body.light .input-clave-alt::placeholder {
+  color: #9ca3af;
+}
+
+/* Placeholder del select */
+body.light .select-placeholder {
+  color: #9ca3af;
+}
+
+/* =========================
+   BOTONES (SUAVES)
+========================= */
+
+body.light button {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37,99,235,.25);
+}
+
+body.light button:hover {
+  background: #1d4ed8;
+}
+
+body.light .btn-add-col {
+  background: #e0f2fe;
+  color: #0369a1;
+  box-shadow: none;
+}
+
+body.light .btn-add-col:hover {
+  background: #bae6fd;
+}
+
+/* X para eliminar columnas */
+body.light .campo-alt .boton-eliminar {
+  background: #fee2e2;        /* rojo claro */
+  color: #991b1b;             /* rojo oscuro */
+  border: 1px solid #fecaca;
+  box-shadow: none;
+}
+
+body.light .campo-alt .boton-eliminar:hover {
+  background: #fecaca;
+  color: #7f1d1d;
+}
+
+/* Botón BORRAR principal */
+body.light .campos .boton-eliminar {
+  background: #ef4444;        /* rojo fuerte */
+  color: #ffffff;
+  border: none;
+}
+
+body.light .campos .boton-eliminar:hover {
+  background: #dc2626;
+}
+
+/* Botón deshabilitado */
+body.light button:disabled {
+  background: #e5e7eb !important;
+  color: #9ca3af !important;
+  box-shadow: none;
+}
+
+/* =========================
+   ACTION BAR
+========================= */
+
+body.light .campos {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+/* =========================
+   JSON OUTPUT
+========================= */
+
+body.light #json-output {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  color: #065f46;
+}
+
+/* =========================
+   TABLA (UNIFORME)
+========================= */
+
+body.light .tablita {
+  background: #ffffff;
+}
+
+body.light .tablita thead {
+  background: #f3f4f6;
+}
+
+body.light .tablita tbody tr {
+  background: #ffffff !important;
+}
+
+body.light .tablita tbody tr:hover {
+  background: #f9fafb !important;
+}
+
+/* =========================
+   MENSAJE DE VALIDACIÓN
+========================= */
+
+.mensaje-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #ef4444;
+}
+
+body.light .mensaje-error {
+  color: #dc2626;
+}
+
+/* =========================
+   INPUT DUPLICADO
+========================= */
+
+.input-duplicado {
+  border: 1px solid #f59e0b !important;
+  box-shadow: 0 0 0 1px rgba(245,158,11,.4);
+}
+
+body.light .input-duplicado {
+  border-color: #d97706 !important;
+}
+
+/* =========================
+   CAMPO CANTIDAD
+========================= */
+
+.campo-cantidad {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+}
+
+.campo-cantidad label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.campo-cantidad small {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Light mode */
+body.light .campo-cantidad label {
+  color: #2563eb;
+}
+
+body.light .campo-cantidad small {
+  color: #6b7280;
+}
+
+
+body.light .campo-alt button.boton-eliminar {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+body.light .campo-alt button.boton-eliminar:hover {
+  background: #dc2626;
+}
+
+/* =========================
+   TRANSICIÓN DE TEMA
+========================= */
+
+body,
+.article,
+.columnas-box,
+.campos,
+.stat-card,
+.tablita,
+#json-output,
+input,
+select,
+button {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* =========================
+   BOTÓN TEMA
+========================= */
+
+.btn-theme {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  padding: 0;
+}
+
+body.dark .btn-theme {
+  background: #020617;
+  color: #facc15; /* amarillo sol */
+  border: 1px solid #1e293b;
+}
+
+body.dark .btn-theme:hover {
+  background: #020617cc;
+}
+
+body.light .btn-theme {
+  background: #f1f5f9;
+  color: #1e293b; /* luna oscura */
+  border: 1px solid #e5e7eb;
+}
+
+body.light .btn-theme:hover {
+  background: #e5e7eb;
+}
+
+.btn-theme svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-theme:active svg {
+  transform: rotate(90deg);
+}
+
+/* =========================
+   THEME TOGGLE
+========================= */
+
+.theme-toggle {
+  position: relative;
+  width: 70px;
+  height: 36px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  user-select: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Track */
+body.dark .theme-toggle {
+  background: #020617;
+  border: 1px solid #1e293b;
+}
+
+body.light .theme-toggle {
+  background: #e5e7eb;
+  border: 1px solid #d1d5db;
+}
+
+/* Icons */
+.theme-toggle .icon {
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: #94a3b8;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+body.dark .theme-toggle .moon {
+  color: #facc15;
+}
+
+body.light .theme-toggle .sun {
+  color: #f59e0b;
+}
+
+/* Thumb */
+.theme-toggle .thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 0.25s ease;
+  z-index: 1;
+}
+
+/* Thumb position */
+body.light .theme-toggle .thumb {
+  transform: translateX(34px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* =========================
+   CROSS-FADE TEMA
+========================= */
+
+body.theme-transition .article,
+body.theme-transition .columnas-box,
+body.theme-transition .campos,
+body.theme-transition .stats-grid,
+body.theme-transition .tablita,
+body.theme-transition #json-output {
+  animation: themeFade 0.3s ease;
+}
+
+@keyframes themeFade {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
