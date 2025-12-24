@@ -928,3 +928,17 @@ body.theme-transition #json-output {
     transform: translateX(-50%);
   }
 }
+
+.btn-copy-row {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #38bdf8;
+  color: #020617;
+  font-size: 14px;
+}
+
+.btn-copy-row:hover {
+  background: #0ea5e9;
+}

@@ -49,7 +49,13 @@ const GENERATOR_MAP = {
     "Numero Real": () => numeroReal(),
     "Numero Telefonico": () => telefono(),
     "Booleano": () => Math.random() > 0.5,
-    "IMEI": () => imei()
+    "IMEI": () => imei(),
+    "Email": () => email(),
+    "UUID": () => uuid(),
+    "Fecha": () => fecha(),
+    "IBAN": () => iban(),
+    "Codigo Postal": () => codigoPostal(),
+
 };
 
 /* =========================
@@ -80,7 +86,13 @@ const TIPOS = [
     { value: "Numero Real", label: "Número Real" },
     { value: "Numero Telefonico", label: "Número Telefónico" },
     { value: "Booleano", label: "Booleano" },
-    { value: "IMEI", label: "IMEI" }
+    { value: "IMEI", label: "IMEI" },
+    { value: "Email", label: "Email" },
+    { value: "UUID", label: "UUID" },
+    { value: "Fecha", label: "Fecha" },
+    { value: "IBAN", label: "IBAN" },
+    { value: "Codigo Postal", label: "Código Postal" },
+
 ];
 
 /* =========================
@@ -214,12 +226,19 @@ function Tabla({ data }) {
     if (!data.length) return null;
     const cols = Object.keys(data[0]);
 
+    function copiarFila(fila) {
+        navigator.clipboard.writeText(
+            JSON.stringify(fila, null, 2)
+        );
+    }
+
     return (
         <table className="tablita">
             <thead>
                 <tr>
                     <th>#</th>
                     {cols.map(c => <th key={c}>{c}</th>)}
+                    <th>📋 COPIAR FILA</th>
                 </tr>
             </thead>
             <tbody>
@@ -229,12 +248,21 @@ function Tabla({ data }) {
                         {cols.map(c => (
                             <td key={c}>{String(fila[c])}</td>
                         ))}
+                        <td>
+                            <button
+                                className="btn-copy-row"
+                                onClick={() => copiarFila(fila)}
+                            >
+                                📋
+                            </button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
         </table>
     );
 }
+
 
 /* =========================
    APP
