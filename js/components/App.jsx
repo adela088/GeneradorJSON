@@ -50,10 +50,7 @@ function App() {
     }
 
     function guardarJSON() {
-        const blob = new Blob(
-            [JSON.stringify(data, null, 2)],
-            { type: "application/json" }
-        );
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
@@ -64,35 +61,18 @@ function App() {
 
     return (
         <div className="article">
-
-            {/* ===== TÍTULO CON ICONO ===== */}
-            <h2 className="app-title">
-                <img
-                    src="/img/json.png"
-                    alt="JSON"
-                    className="title-icon"
-                />
-                Generador JSON
-            </h2>
+            <h2>Generador JSON </h2>
 
             <Columnas columnas={columnas} setColumnas={setColumnas} />
 
             <div className="campos">
-                <input
-                    type="number"
-                    min="1"
-                    value={cantidad}
-                    onChange={e => setCantidad(+e.target.value)}
-                />
-
+                <input type="number" min="1" value={cantidad}
+                    onChange={e => setCantidad(+e.target.value)} />
                 <button onClick={generar}>Generar</button>
                 <button onClick={guardarJSON}>Guardar JSON</button>
             </div>
 
-            <pre id="json-output">
-                {JSON.stringify(data, null, 2)}
-            </pre>
-
+            <pre id="json-output">{JSON.stringify(data, null, 2)}</pre>
             <Tabla data={data} />
         </div>
     );
