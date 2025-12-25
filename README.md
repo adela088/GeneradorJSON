@@ -28,6 +28,7 @@
   - Booleano
   - IMEI
   - Email inteligente (usa nombre si existe, o genera uno aleatorio)
+- 📄 Se incluyen algunas plantillas para generar un esquema completo
 - 📊 Vista previa en tabla
 - 📋 Copiar JSON al portapapeles
 - 💾 Guardar archivo `.json`
