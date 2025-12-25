@@ -1,8 +1,8 @@
 # 📌 Generador JSON Dinámico
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript)
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3)
+![HTML](https://img.shields.io/badge/HTML5-orange?style=for-the-badge&logo=html5)
+![CSS](https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)
 ![Web](https://img.shields.io/badge/Platform-Web-lightgrey?style=for-the-badge)
 ![Estado](https://img.shields.io/badge/Estado-Finalizado-brightgreen?style=for-the-badge)
@@ -28,6 +28,7 @@
   - Booleano
   - IMEI
   - Email inteligente (usa nombre si existe, o genera uno aleatorio)
+- 📄 Se incluyen algunas plantillas para generar un esquema completo
 - 📊 Vista previa en tabla
 - 📋 Copiar JSON al portapapeles
 - 💾 Guardar archivo `.json`
@@ -42,6 +43,8 @@
 
 ![capture1](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture1.png)
 ![capture2](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture2.png)
+![capture3](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture3.png)
+![capture4](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture4.png)
 
 ---
 
@@ -52,8 +55,6 @@
 - **JavaScript ES6**
 - **HTML5**
 - **CSS3**
-- Sin backend
-- Sin dependencias externas de build
 
 ---
 
@@ -61,7 +62,7 @@
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/generador-json.git
+git clone https://github.com/adela088/GeneradorJSON.git
 ```
 
 2. Abre el archivo:
