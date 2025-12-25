@@ -1020,3 +1020,70 @@ body.light .plantillas-container select:focus {
   box-shadow: 0 0 0 2px rgba(37,99,235,.15);
 }
 
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Columnas (inputs + select) */
+  .campo-alt {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 8px;
+  }
+
+  .campo-alt input,
+  .campo-alt select {
+    grid-column: 1 / -1;
+  }
+
+  /* Barra de acciones */
+  .campos {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .campos button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Cantidad */
+  .campo-cantidad {
+    width: 100%;
+  }
+
+  .campo-cantidad input {
+    width: 100%;
+  }
+
+  /* JSON output */
+  #json-output {
+    font-size: 13px;
+    padding: 12px;
+    overflow-x: auto;
+  }
+
+  /* Tabla */
+  .tablita {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Top bar en móviles pequeños */
+@media (max-width: 480px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
