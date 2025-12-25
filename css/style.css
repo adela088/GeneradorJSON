@@ -956,3 +956,64 @@ button:hover {
 button:active {
   transform: translateY(0);
 }
+
+/* =========================
+   PLANTILLAS (BASE)
+========================= */
+
+.plantillas-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.plantillas-container label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.plantillas-container select {
+  min-width: 220px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body.dark .plantillas-container label {
+  color: #38bdf8;
+}
+
+body.dark .plantillas-container select {
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #1e293b;
+}
+
+
+/* =========================
+   PLANTILLAS – LIGHT MODE
+========================= */
+
+body.light .plantillas-container label {
+  color: #2563eb;
+}
+
+body.light .plantillas-container select {
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+
+body.light .plantillas-container select:hover {
+  border-color: #2563eb;
+}
+
+body.light .plantillas-container select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,.15);
+}
+

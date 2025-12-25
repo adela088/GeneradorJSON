@@ -296,6 +296,28 @@ function Tabla({ data }) {
 }
 
 
+const PLANTILLAS = {
+    "Usuario Básico": [
+        { nombre: "Nombre", tipo: "Nombre Completo" },
+        { nombre: "Email", tipo: "Email" },
+        { nombre: "Telefono", tipo: "Numero Telefonico" },
+        { nombre: "UUID", tipo: "UUID" },
+        { nombre: "FechaNacimiento", tipo: "Fecha" }
+    ],
+    "Dirección": [
+        { nombre: "Ciudad", tipo: "Ciudad" },
+        { nombre: "CodigoPostal", tipo: "Codigo Postal" },
+        { nombre: "IBAN", tipo: "IBAN" }
+    ],
+    "Producto": [
+        { nombre: "Producto", tipo: "Objeto" },
+        { nombre: "Precio", tipo: "Numero Real" },
+        { nombre: "Stock", tipo: "Numero Entero" },
+        { nombre: "UUID", tipo: "UUID" }
+    ]
+};
+
+
 /* =========================
    APP
 ========================= */
@@ -489,6 +511,24 @@ function App() {
                     {toast.msg}
                 </div>
             )}
+
+            <div className="plantillas-container">
+                <label>Plantillas:</label>
+                <select
+                    onChange={(e) => {
+                        const sel = e.target.value;
+                        if (sel && PLANTILLAS[sel]) {
+                            setColumnas(PLANTILLAS[sel]);
+                        }
+                    }}
+                >
+                    <option value="">📦 Seleccionar plantilla</option>
+                    <option value="Usuario Básico">👤 Usuario Básico</option>
+                    <option value="Producto">📦 Producto</option>
+                    <option value="Dirección">📍 Dirección</option>
+
+                </select>
+            </div>
 
 
             <Stats columnas={columnas} data={data} />
