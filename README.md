@@ -55,8 +55,6 @@
 - **JavaScript ES6**
 - **HTML5**
 - **CSS3**
-- Sin backend
-- Sin dependencias externas de build
 
 ---
 
@@ -64,7 +62,7 @@
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/generador-json.git
+git clone https://github.com/adela088/GeneradorJSON.git
 ```
 
 2. Abre el archivo:
