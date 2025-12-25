@@ -76,6 +76,11 @@ index.html
 
 ---
 
+## 🌐 Demo en vivo
+🔗 https://adela088.github.io/GeneradorJSON/
+
+---
+
 ## 📁 Estructura del proyecto
 
 /                
