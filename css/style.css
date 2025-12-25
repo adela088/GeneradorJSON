@@ -564,14 +564,17 @@ body.light button:hover {
   background: #1d4ed8;
 }
 
+
 body.light .btn-add-col {
-  background: #e0f2fe;
-  color: #0369a1;
-  box-shadow: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(37,99,235,.25);
+  border: none;
 }
 
 body.light .btn-add-col:hover {
-  background: #bae6fd;
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-1px);
 }
 
 /* X para eliminar columnas */
