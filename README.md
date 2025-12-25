@@ -59,8 +59,6 @@
 
 ## ▶️ Ejecución
 
-## ▶️ Ejecución
-
 1. Clona el repositorio:
 ```bash
 git clone https://github.com/tu-usuario/generador-json.git
