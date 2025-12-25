@@ -42,6 +42,8 @@
 
 ![capture1](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture1.png)
 ![capture2](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture2.png)
+![capture3](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture3.png)
+![capture4](https://raw.githubusercontent.com/adela088/GeneradorJSON/master/assets/capture4.png)
 
 ---
 
